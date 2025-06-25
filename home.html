@@ -1482,8 +1482,8 @@
           isPremium = userData?.in_premium || false;
         }
         
-        // Set storage limit based on premium status
-        maxStorage = isPremium ? (5 * 1024 * 1024 * 1024) : (500 * 1024 * 1024); // 5GB : 500MB
+      maxStorage = isPremium ? (5 * 1024 * 1024 * 1024) : (500 * 1024 * 1024);
+
         
         return user;
       } catch (error) {
@@ -1508,16 +1508,16 @@
       accountEmail.textContent = userEmail;
       document.getElementById('userMenuButton').textContent = userEmail;
       
-      // Update premium status
-      if (isPremium) {
-        isPremiumBadge.classList.remove('hidden');
-        accountStatus.textContent = 'Premium Member';
-        goPremiumBtn.style.display = 'none';
-      } else {
-        isPremiumBadge.classList.add('hidden');
-        accountStatus.textContent = 'Free Account';
-        goPremiumBtn.style.display = 'block';
-      }
+  if (isPremium) {
+  isPremiumBadge.classList.remove('hidden');
+  accountStatus.textContent = 'Premium Member';
+  goPremiumBtn.style.display = 'none';
+} else {
+  isPremiumBadge.classList.add('hidden');
+  accountStatus.textContent = 'Free Account';
+  goPremiumBtn.style.display = 'block';
+}
+
 
       // Calculate and update storage info
       const used = calculateUsedStorage();
