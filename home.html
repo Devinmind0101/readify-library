@@ -1525,6 +1525,21 @@ console.log("👁️ isPremium (inside updateAccountUI) =", isPremium);
 }
 
 
+document.getElementById('goPremiumBtn').addEventListener('click', async () => {
+  const userEmail = 'lescanojohn07@gmail.com'; // 🟠 Replace this with the logged-in user's email
+
+  const response = await fetch('https://your-render-app.onrender.com/create-checkout-session', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: userEmail })
+  });
+
+  const data = await response.json();
+  window.location.href = data.url; // ✅ redirect to Stripe Checkout
+});
+
+
+
       // Calculate and update storage info
       const used = calculateUsedStorage();
       const usedPercentage = (used / maxStorage) * 100;
