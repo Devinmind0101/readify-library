@@ -2550,6 +2550,11 @@
       setActiveNav("recentUploads");
       renderRecentUploads();
     });
+
+    checkAuth().then(user => {
+  if (user) updateAccountUI();
+});
+
   </script>
 </body>
 </html>
