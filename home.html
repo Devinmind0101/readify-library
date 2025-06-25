@@ -1468,13 +1468,12 @@
         
         userEmail = user.email || '';
         
-        // Fetch user premium status from database
-        const { data: userData, error: userError } = await supabase
-          .from('users')
-          .select('in_premium')
-          .eq('id', user.id)
-          .single();
-        
+       const { data: userData, error: userError } = await supabase
+  .from('users')
+  .select('in_premium')
+  .eq('email', user.email)
+  .single();
+
         if (userError) {
           console.error('Error fetching user data:', userError);
           isPremium = false;
