@@ -1475,12 +1475,12 @@
   .single();
 
         if (userError) {
-          console.error('Error fetching user data:', userError);
-          isPremium = false;
-        } else {
-          isPremium = userData?.in_premium || false;
-        }
-        
+  console.error('Error fetching user data:', userError);
+  isPremium = false;
+} else {
+  isPremium = userData?.in_premium || false;
+}
+
       maxStorage = isPremium ? (5 * 1024 * 1024 * 1024) : (500 * 1024 * 1024);
 
         
@@ -1490,6 +1490,7 @@
         window.location.href = 'signup.html';
         return null;
       }
+      
     }
 
     // Calculate used storage
@@ -1506,6 +1507,12 @@
       // Update user info
       accountEmail.textContent = userEmail;
       document.getElementById('userMenuButton').textContent = userEmail;
+
+
+      console.log("✅ isPremium =", isPremium);
+console.log("📦 maxStorage =", maxStorage);
+console.log("👁️ isPremium (inside updateAccountUI) =", isPremium);
+
       
   if (isPremium) {
   isPremiumBadge.classList.remove('hidden');
@@ -2553,6 +2560,8 @@
     checkAuth().then(user => {
   if (user) updateAccountUI();
 });
+
+
 
   </script>
 </body>
